@@ -1,0 +1,169 @@
+/* Initial setup margin,padding=0, height=100% */
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1px;
+}
+
+/* Body setup */
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* section>counter setup */
+
+section.counter {
+  background-color: black;
+  color: white;
+}
+
+section.counter button {
+  background-color: white;
+  color: black;
+}
+
+section.counter button:hover {
+  background-color: black;
+  color: white;
+  border-style: outset;
+}
+
+/* section>timer setup */
+
+section.stopwatch button {
+  background-color: black;
+  color: white;
+}
+
+section.stopwatch button:hover {
+  background-color: white;
+  color: black;
+  border-style: outset;
+}
+
+/* both sections layout */
+
+section {
+  flex: 46.5%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section .logo {
+  flex: 40%;
+  font-size: 2em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section .row {
+  flex: 30%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+section .wrapper {
+  flex: 30%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+section .wrapper .reset {
+  margin: 0;
+}
+
+section .row .display {
+  font-size: 4em;
+}
+
+/* footer setup */
+
+footer {
+  flex: 7%;
+  background-color: black;
+  color: white;
+  line-height: 1.2;
+  padding-left: 7px;
+  padding-top: 2px;
+  text-align: center;
+}
+
+/* links(a) setup */
+
+a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+a:visited {
+  color: grey;
+}
+
+a:active {
+  color: lightcoral;
+}
+
+/* buttons common style */
+
+button {
+  border: 5px inset grey;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* to remove bluish color on button pressing in phones*/
+}
+
+#start:disabled {
+  cursor: not-allowed;
+  background-color: white;
+  color: black;
+  border-style: outset;
+}
+
+/* button pressing effect */
+
+section button:active {
+  border-width: 2px;
+}
+
+section .row button {
+  align-self: flex-start;
+}
+
+section .row button:active {
+  /*setting margin so that nearby layout dosen't move*/
+  /*But not setting it on .stopwatch(whole section) because it's width is explicitly set instead of auto*/
+  margin-left: 23px;
+  margin-right: 23px;
+}
+
+#start,
+#stop {
+  /* setting to content box for same button pressing affect as that of increase and decrease*/
+  box-sizing: content-box;
+}
